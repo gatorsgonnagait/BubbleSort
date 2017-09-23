@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.nio.DoubleBuffer;
 import java.util.ArrayList;
@@ -43,21 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
                 //Log.d("second", input.getText().toString());
                 if(input.length() != 0){
-                    sortList.add(input);
-
-                    //output.setText(input.getText().toString());
-
-                    displayList = displayList + "   " + input.getText().toString();
-                    Log.d("second", input.getText().toString());
-
-
-                    output.setText(displayList);
 
                     double dval = Double.parseDouble(input.getText().toString());
-                    Log.d("double test", dval+"");
-                    doubleList.add(dval);
-
-                    input.setText(""); // adds text to arraylist and make edit text blank again
+                    if(dval < 0 || dval > 10 || dval % 1 != 0){
+                        Toast.makeText(getApplicationContext(), "Number must be integers between 0 and 9 ", Toast.LENGTH_SHORT).show();
+                        input.setText("");
+                    }
+                    else {
+                        sortList.add(input);
+                        //output.setText(input.getText().toString());
+                        displayList = displayList + "   " + input.getText().toString();
+                        Log.d("second", input.getText().toString());
+                        output.setText(displayList);
+                        Log.d("double test", dval + "");
+                        doubleList.add(dval);
+                        input.setText(""); // adds text to arraylist and make edit text blank again
+                    }
                 }
 
 ///
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 String str;
                                 if( (int)num == num){
-                                    str = Integer.toString((int) num);
+                                    str = Integer.toString((int) num);  // we only need this if / else if we want to take double values too
                                 }
                                 else{
                                     str = Double.toString(num);
