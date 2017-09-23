@@ -31,8 +31,8 @@
 
         <TextView
             android:id="@+id/unsortedNums"
-            android:layout_width="121dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -60,18 +60,19 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="40dp"
             android:text="Sort"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/unsortedNums"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            tools:layout_constraintTop_creator="1"
+            app:layout_constraintHorizontal_bias="0.287" />
 
         <TextView
             android:id="@+id/sortedNums"
-            android:layout_width="122dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="24dp"
@@ -93,18 +94,13 @@
             app:layout_constraintBottom_toTopOf="@+id/unsortedNums"
             app:layout_constraintRight_toRightOf="@+id/userInput"
             tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_marginRight="0dp" />
+            tools:layout_constraintRight_creator="1" />
 
         <TextView
             android:id="@+id/printLines"
-            android:layout_width="122dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -112,6 +108,18 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
             tools:layout_constraintTop_creator="1" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="@+id/button3"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+            tools:layout_constraintBaseline_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="@+id/button3" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

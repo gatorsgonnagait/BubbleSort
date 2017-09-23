@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button b = (Button) findViewById(R.id.button);
         Button b2 = (Button) findViewById(R.id.button2);
         Button b3 = (Button) findViewById(R.id.button3);
+        Button b4 = (Button) findViewById(R.id.button4);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             temp = doubleList.get(j);
                             doubleList.set(j, doubleList.get(i) );
                             doubleList.set(i, temp);
+
                             for( double num : doubleList){
 
                                 String str;
@@ -132,6 +134,14 @@ public class MainActivity extends AppCompatActivity {
                 halfwaysorted = "";
                 doubleList.clear();
 
+            }
+        });
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
             }
         });
 //
