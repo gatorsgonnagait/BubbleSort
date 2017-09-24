@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sortList.clear();
                 double temp;
                 halfwaysorted = displayList + System.getProperty ("line.separator");
                 for(int i = 0; i < doubleList.size()-1; i++){
