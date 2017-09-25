@@ -2,6 +2,8 @@ package com.example.jessica.bubblesort;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -71,8 +73,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sortList.clear();
+                sortedList = "";
+                output2.setText("");
                 double temp;
-                halfwaysorted = displayList + System.getProperty ("line.separator");
+                Log.d("testttttt", doubleList.size()+"");
+                if(doubleList.size() > 1 && doubleList.size() < 9) {
+                    halfwaysorted = displayList + System.getProperty("line.separator");
+                /*
                 for(int i = 0; i < doubleList.size()-1; i++){
                     //String str = Double.toString(doubleList.get(i));
                     for(int j = i+1; j < doubleList.size(); j++){
@@ -95,28 +102,57 @@ public class MainActivity extends AppCompatActivity {
                             }
                             halfwaysorted = halfwaysorted + System.getProperty ("line.separator");
                         }
-                        //str1 = Double.toString(doubleList.get(j)) +  " " +  str1 ;
+                    }
+                 }
+                 */
+                    for (int i = 0; i < doubleList.size() - 1; i++) {
+                        //String str = Double.toString(doubleList.get(i));
+                        for (int j = 1; j < doubleList.size(); j++) {
 
+                            if (doubleList.get(j - 1) > doubleList.get(j)) {
+                                temp = doubleList.get(j - 1);
+                                doubleList.set(j - 1, doubleList.get(j));
+                                doubleList.set(j, temp);
+
+                                for (double num : doubleList) {
+
+                                    String str;
+                                    if ((int) num == num) {
+                                        str = Integer.toString((int) num);  // we only need this if / else if we want to take double values too
+                                    } else {
+                                        str = Double.toString(num);
+                                    }
+                                    halfwaysorted = halfwaysorted + "   " + str;
+                                }
+                                halfwaysorted = halfwaysorted + System.getProperty("line.separator");
+                            }
+                        }
                     }
 
 
+                    for (double num : doubleList) {
+                        Log.d("list", num + "");
+                        String str;
+                        if ((int) num == num) {
+                            str = Integer.toString((int) num);
+                        } else {
+                            str = Double.toString(num);
+                        }
+                        sortedList = sortedList + "   " + str;
+                    }
+
+                    output2.setText(sortedList);
+                    output3.setText(halfwaysorted);
+                    doubleList.clear();
+                    sortList.clear();
+                    displayList = "";
+                    output.setText("");
+                    Log.d("final", sortedList);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Enter between 2 and 8 digits", Toast.LENGTH_SHORT).show();
 
                 }
-
-                for( double num : doubleList){
-                    Log.d("list", num+"");
-                    String str;
-                    if( (int)num == num){
-                        str = Integer.toString((int) num);
-                    }
-                    else{
-                        str = Double.toString(num);
-                    }
-                    sortedList = sortedList + "   " + str;
-                }
-                output2.setText(sortedList);
-                output3.setText(halfwaysorted);
-                Log.d("final", sortedList);
 
             }
         });
