@@ -107,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
                  */
                     for (int i = 0; i < doubleList.size() - 1; i++) {
                         //String str = Double.toString(doubleList.get(i));
-                        for (int j = 1; j < doubleList.size(); j++) {
+                        for (int j = doubleList.size() - 1; j > i; j--) {
 
-                            if (doubleList.get(j - 1) > doubleList.get(j)) {
-                                temp = doubleList.get(j - 1);
-                                doubleList.set(j - 1, doubleList.get(j));
-                                doubleList.set(j, temp);
+                            if (doubleList.get(j) < doubleList.get(j-1)) {
+                                temp = doubleList.get(j);
+                                doubleList.set(j, doubleList.get(j-1));
+                                doubleList.set(j-1, temp);
 
                                 for (double num : doubleList) {
 
